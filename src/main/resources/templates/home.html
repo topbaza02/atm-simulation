@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+</head>
+<body>
+<p th:text="'Hello, Mr. Nobody !'"/>
+<p th:text="'Account Balance : ' + ${#numbers.formatDecimal(balance, 0, 'COMMA', 0, 'POINT')} + ' Baht'"/>
+<p th:text="'ATM Available Notes ------------- '"/>
+<p th:text="'Banknote 1000 : '+${account.banknotes_1000} + ' notes'"/>
+<p th:text="'Banknote 500 : '+${account.banknotes_500} + ' notes'"/>
+<p th:text="'Banknote 100 : '+${account.banknotes_100} + ' notes'"/>
+<p th:text="'Banknote 50 : '+${account.banknotes_50} + ' notes'"/>
+<p th:text="'Banknote 20 : '+${account.banknotes_20} + ' notes'"/>
+<p th:text="'----------------------------- '"/>
+<form action="/withdraw"  method="post">
+    <span>Withdraw : </span> <input type="number" name="amount" /><span> Baht</span>
+    <input type="submit" />
+<p th:text="${msg}"/>
+</form>
+
+</body>
+</html>

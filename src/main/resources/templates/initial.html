@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Initial Money In Account</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+</head>
+<body>
+<p th:text="'Hello, Mr. Nobody !'"/>
+
+<form  th:action="@{/create}" th:object="${account}" method="post">
+    <span>deposit 1000 : </span> <input type="number" th:field="*{banknotes_1000}"/> <br>
+    <span>deposit 500 : </span> <input type="number" th:field="*{banknotes_500}"/> <br>
+    <span>deposit 100 : </span> <input type="number" th:field="*{banknotes_100}"/> <br>
+    <span>deposit 50 : </span> <input type="number" th:field="*{banknotes_50}"/> <br>
+    <span>deposit 20 : </span> <input type="number" th:field="*{banknotes_20}"/> <br>
+    <span>------------------------------- </span>  <br>
+    <span>balance : </span> <input type="number" th:field="*{balance}"/> <br>
+    <input type="submit" value="Create Account"/>
+</form>
+
+</body>
+</html>
