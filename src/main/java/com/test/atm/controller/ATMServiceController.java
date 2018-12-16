@@ -19,7 +19,6 @@ public class ATMServiceController extends ControllerBase {
     private final Logger logger = Logger.getLogger(getClass().getName());
 
 
-
     @PostMapping("/create")
     public ModelAndView create(@ModelAttribute(name = "account") Account account, Model model) {
         logger.info("#------ initial -----: " + account);
@@ -31,7 +30,9 @@ public class ATMServiceController extends ControllerBase {
     @PostMapping(value = "/withdraw")
     public ModelAndView withdraw(@RequestParam("amount") BigDecimal amount, Model model) {
         logger.info("#-------withdraw  : " + amount);
-        service.withdraw(amount);
+        if (amount != null) {
+            service.withdraw(amount);
+        }
         return new ModelAndView("redirect:/home");
     }
 

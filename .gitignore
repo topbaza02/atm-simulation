@@ -21,3 +21,10 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/target/classes/*.gitignore
+/target/classes/static/*.gitignore
+/target/classes/templates/*.gitignore
+/target/maven-status/maven-compiler-plugin/compile/default-compile/*.gitignore
+/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/*.gitignore
+/target/surefire-reports/*.gitignore
+/*.iml

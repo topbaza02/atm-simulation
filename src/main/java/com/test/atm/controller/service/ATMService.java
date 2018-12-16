@@ -14,29 +14,14 @@ public class ATMService {
     private Logger logger = Logger.getLogger(getClass().getName());
     private MoneyConverters converters = MoneyConverters.ENGLISH_BANKING_MONEY_VALUE;
 
-    public BigDecimal calSum(Account account) {
-        logger.info("#calsum# : " + account);
-        BigDecimal sum = BigDecimal.ZERO;
-        sum = sum.add(calByEachType(BigDecimal.valueOf(20), account.getBanknotes_20()));
-        sum = sum.add(calByEachType(BigDecimal.valueOf(50), account.getBanknotes_50()));
-        sum = sum.add(calByEachType(BigDecimal.valueOf(100), account.getBanknotes_100()));
-        sum = sum.add(calByEachType(BigDecimal.valueOf(500), account.getBanknotes_500()));
-        sum = sum.add(calByEachType(BigDecimal.valueOf(1000), account.getBanknotes_1000()));
-        logger.info("#result  : " + sum);
-        return sum;
-    }
-
-    public BigDecimal calByEachType(BigDecimal value, BigDecimal amount) {
-        return value.multiply(amount);
-    }
 
 
     public void withdraw(BigDecimal withdraw) {
         logger.info("#withdraw  : " + withdraw);
 
-        if (Database.account.getBalance().compareTo(withdraw) >= 0) {
+        if ( Database.account.getBalance().compareTo(withdraw) >= 0) {
             try {
-                Account account = new Account(Database.account); //backup
+                Account account = new Account( Database.account); //backup
                 Account useNotes = new Account();
                 logger.info(account.toString());
 
@@ -59,7 +44,7 @@ public class ATMService {
                 }
 
                 Database.account = account;
-                Database.account.setBalance(Database.account.getBalance().subtract(withdraw));
+                Database.account.setBalance( Database.account.getBalance().subtract(withdraw));
                 Database.msg = getMsg(withdraw, useNotes);
             } catch (WithdrawException e) {
                 Database.msg = "it is not possible to dispense ฿ " + withdraw + " .";
