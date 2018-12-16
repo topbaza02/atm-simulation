@@ -12,3 +12,7 @@ thymeleaf
 pl.allegro.finance.tradukisto
   - use for convert number to word like '1 to one, 55 to fifty-five'.
   
+# check out and build
+ -https://github.com/topbaza02/atm-simulation.git
+ - build cmd 'mvn clean install'
+ - run cmd 'mvn spring-boot:run or run main class Application.java'
